@@ -42,9 +42,11 @@
                             @csrf
                             @method('POST')
 
-                            {{--                        name Filable textbox--}}
+                            {{--                        name Filable textbox --}}
+
+                            {{-- insert flex at line 47 & 48                            --}}
                             <div class="pb-4 flex">
-                                <label for="name" class="flex mr-4 w-1/12 w-20">
+                                <label for="name" class="mr-4 w-1/12 w-20">
                                     <strong>Name:</strong>
                                 </label>
                                 <input type="text" id="name" name="name" required maxlength="128"
@@ -52,19 +54,36 @@
                                        placeholder="enter your name here">
                             </div>
 
-                            <div class="pb-4 flex">
-                                <label for="permission" class="flex mr-4 w-1/12 w-20">
-                                    <strong>permissions:</strong>
-                                </label>
-                                @foreach($permission as $value)'
-                                    <label for="permission[]" class="">
-                                        <input type="checkbox" name="permission[]" value="{{$value->id}}">
-                                        {{$value->name}}
-                                    </label>
-{{--                                <label><input class="name" name="permission[]" type="checkbox" value="1">--}}
-{{--                                    user-list</label>--}}
+{{--                            <div class="pb-4 max-h-96 bg-slate-800">--}}
+{{--                                <label for="permission" class="mr-4 w-1/12 w-20">--}}
+{{--                                    <strong>permissions:</strong>--}}
+{{--                                </label>--}}
+{{--                                @foreach($permission as $value)--}}
+{{--                                    <div class="flex flex-col-reverse flex-wrap-reverse bg-red-500">--}}
+{{--                                        <label for="permission[]" class="w-full ">--}}
+{{--                                            <input type="checkbox" name="permission[]" value="{{$value->id}}">--}}
+{{--                                            {{$value->name}}--}}
+{{--                                        </label>--}}
+{{--                                    </div>--}}
+{{--                                @endforeach--}}
+{{--                            </div>--}}
 
+                            <div class="grid grid-rows-3">
+                                <label for="" class="">
+                                    <Strong>Permissions: </Strong>
+                                </label>
+                                @foreach($permission as $value)
+                                    @if( $value->id % 5 == 0 )
+
+                                    @endif
+                                    <div class="grid grid-flow-col">
+                                        <label for="" class="py-1 my-1 pl-4 ml-4 bg-blue-500">
+                                            <input type="checkbox" name="permission[]" value="{{  $value->id }}">
+                                            {{$value->name}}
+                                        </label>
+                                    </div>
                                 @endforeach
+
                             </div>
 
 

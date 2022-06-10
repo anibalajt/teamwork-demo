@@ -67,7 +67,9 @@
                         </tbody>
                         <tfoot>
                         <tr class="">
-                            <td class="p-2 m-1" colspan="5">PAGINATION</td>
+                            <td class="p-2 m-1" colspan="5">PAGINATION
+                                {{ $data->links() }}
+                            </td>
                         </tr>
                         </tfoot>
                     </table>

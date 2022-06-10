@@ -53,17 +53,17 @@
 
                                 <td class="text-center p-3 ">
                                     <a class="rounded bg-blue-400 text-white mx-2 py-2 px-2"
-                                       href="{{ route('users.show', $permission->id) }}">
+                                       href="{{ route('permissions.show', $permission->id) }}">
                                         Show
                                     </a>
                                     <a class="rounded bg-orange-400 text-white mx-2 py-2 px-2"
-                                       href="{{ route('users.edit', $permission->id) }}">
+                                       href="{{ route('permissions.edit', $permission->id) }}">
                                         Edit
                                     </a>
 
                                     {{-- todo: a warning modal before deleting would be nice                                    --}}
                                     <form method="POST"
-                                          action="{{ route('users.destroy', $permission->id) }}">
+                                          action="{{ route('permissions.destroy', $permission->id) }}">
                                         @method('DELETE')
                                         @csrf
                                         <button class="rounded bg-red-500 text-white mt-2 py-2 px-2"
@@ -77,10 +77,13 @@
                         </tbody>
                         <tfoot>
                         <tr class="">
-                            <td class="p-2 m-1" colspan="5">PAGINATION</td>
+                            <td class="p-2 m-1" colspan="5">PAGINATION
+                                {{$data->links()}}
+                            </td>
                         </tr>
                         </tfoot>
                     </table>
+
                 </div>
             </div>
         </div>

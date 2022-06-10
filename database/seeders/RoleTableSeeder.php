@@ -15,6 +15,23 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
-        Role::create(['name' => 'Admin']);
+        // inserted dummy data as placeholderX to check if pagination as any problems
+        // please remove it as it pleases you. cheers
+        $seeder = [
+            'Admin',
+            'Student',
+            'Guest',
+            'Staff',
+            'Manager',
+            'placeholder1',
+            'placeholder2',
+            'placeholder3',
+            'placeholder4',
+        ];
+
+        foreach($seeder as $role){
+            Role::create(['name' => $role]);
+        }
+
     }
 }

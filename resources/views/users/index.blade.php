@@ -5,7 +5,7 @@
                 {{ __("User Management") }}
             </h2>
             <div class="flex-none justify-between">
-                <a href="{{ route('users.create') }}" class="bg-blue-400 text-white rounded p-2">
+                <a href="{{ route('users.create') }}" class="transition ease-in-out  bg-blue-400  delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 text-white rounded p-2">
                     Create a new user
                 </a>
             </div>
@@ -53,12 +53,19 @@
                                     @endif
                                 </td>
 
+
+                                {{-- CHANGES 10/06/2022 8:23 AM:
+                                    applying on hover transitions on a links and button links.
+
+                                    ISSUE:
+                                    transition only works in button tags. please investigate.
+                                --}}
                                 <td class="text-center p-3 ">
-                                    <a class="rounded bg-blue-400 text-white mx-2 py-2 px-2"
+                                    <a class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded bg-blue-400 text-white m-3 p-2"
                                        href="{{ route('users.show', $user->id) }}">
                                         Show
                                     </a>
-                                    <a class="rounded bg-orange-400 text-white mx-2 py-2 px-2"
+                                    <a class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300 rounded bg-amber-400 text-white m-3 p-2"
                                        href="{{ route('users.edit', $user->id) }}">
                                         Edit
                                     </a>
@@ -68,7 +75,7 @@
                                           action="{{ route('users.destroy', $user->id) }}">
                                         @method('DELETE')
                                         @csrf
-                                        <button class="rounded bg-red-500 text-white mt-2 py-2 px-2"
+                                        <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-red-900 duration-300 rounded bg-red-500 text-white m-3 p-2"
                                                 type="submit">
                                             Delete
                                         </button>
@@ -79,10 +86,16 @@
                         </tbody>
                         <tfoot>
                         <tr class="">
-                            <td class="p-2 m-1" colspan="5">PAGINATION</td>
+                            <td class="p-2 m-1" colspan="5">PAGINATION
+                            </td>
+                        </tr>
+                        <tr class="">
+                            <td class="p-2 m-1" colspan="5">{!! $data->links() !!}
+                            </td>
                         </tr>
                         </tfoot>
                     </table>
+
                 </div>
             </div>
         </div>
