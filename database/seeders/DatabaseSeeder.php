@@ -19,6 +19,17 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
-        // ]);
+        //
+
+
+        $seeders = [
+            PermissionTableSeeder::class,
+            RoleTableSeeder::class,
+            UserTableSeeder::class,
+        ];
+
+        $this->command->getOutput()->writeln("-------------------------------------------------------------");
+        $this->command->getOutput()->writeln("<info>Starting Database Seeding</info>");
+        $this->call($seeders);
     }
 }
